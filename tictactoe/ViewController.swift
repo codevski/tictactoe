@@ -51,6 +51,7 @@ class ViewController: UIViewController {
                 fadeIn(winner: winner)
             }
         }
+        drawRect(rect: CGRect(x: 5, y: 5, width: 3, height: 3))
     }
     
     func fadeIn(winner:String) { // fade in effect
@@ -106,6 +107,21 @@ class ViewController: UIViewController {
 //            button.setImage(nil, for: [])
 //        }
     }
+    
+    func drawRect(rect: CGRect) {
+        let aPath = UIBezierPath()
+        
+        aPath.move(to: CGPoint(x: 0, y: 0))
+        aPath.addLine(to: CGPoint(x: 5, y: 5))
+        
+        aPath.close()
+        
+        //If you want to stroke it with a red color
+        UIColor.red.set()
+        aPath.stroke()
+        //If you want to fill it as well
+        aPath.fill()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -113,8 +129,8 @@ class ViewController: UIViewController {
         winnerLabel.isHidden = true
         playAgainBtn.isHidden = true
         
-//        winnerLabel.layer.zPosition = 1
-//        playAgainBtn.layer.zPosition = 1
+        winnerLabel.layer.zPosition = 1
+        playAgainBtn.layer.zPosition = 1
         
     }
     
